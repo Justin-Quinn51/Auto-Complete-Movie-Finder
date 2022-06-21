@@ -12,16 +12,16 @@ $(document).ready(function () {
                 })) 
                 res(data)
         },
-        mingLength: 2,
+        minLength: 2,
         select: function(event, ui) {
             console.log(ui.item.id)
-            fetch(`http://localhost8000/get/${ui.item.id}`)
+            fetch(`http://localhost:8000/get/${ui.item.id}`)
                 .then(result => result.json())
                 .then(result => {
                     $('#cast').empty()
                     result.cast.forEach(cast => 
                         {
-                            $(cast).append(`<li>${cast}</li>`)
+                            $("#cast").append(`<li>${cast}</li>`)
                         })
                         $('img').attr('src', result.poster)
                 })
